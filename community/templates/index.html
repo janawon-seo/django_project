@@ -11,9 +11,8 @@
     {% for article in articles %}
     <div>
     <h3>{{ article.title }}</h3>
-    <p>{{ article.content }} </p>
-    <p>{{ article.created_at }}</p>
-    <p>{{ article.user }}</p>
+    <a href="{% url 'community:article_detail' article.id %}"
+    >상세 페이지로 이동</a>
     </div>
     {% endfor %}
 </body>
