@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import User
 from django.contrib.auth import authenticate, login as loginsession
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def signup(request):
@@ -44,7 +45,7 @@ def user(request):
 
 
 def profile(request, username):
-    user = User.objects.get(username=username)
+    user = get_object_or_404(User, username=username)
     context = {
         "user" : user
     }
